@@ -1,10 +1,7 @@
 package log
 
 import (
-	"huashu-iot-connector/consts"
-	"huashu-iot-connector/tool"
 	"os"
-	"time"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -19,17 +16,8 @@ func init() {
 }
 
 func getLogWriter() zapcore.WriteSyncer {
-	fileName := consts.LogDirectory + tool.ProgramMD5() + ".log"
+	fileName := "log.log"
 	file, _ := os.OpenFile(fileName, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
-	go func(p string) {
-		for {
-			fileInfo, _ := os.Stat(p)
-			if fileInfo.Size() > consts.MaxLogSize {
-				_ = os.Truncate(p, 0)
-			}
-			time.Sleep(time.Duration(3) * time.Second)
-		}
-	}(fileName)
 	return zapcore.AddSync(file)
 }
 
