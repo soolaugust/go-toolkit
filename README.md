@@ -20,4 +20,15 @@ git clone https://github.com/soolaugust/go-toolkit.git
     ```bash
     go mod tidy
     ```
- 
+
+## 目前依赖的库
+
+**log**
+
+log采用 [uber-go/zap](https://github.com/uber-go/zap)
+
+具体原因可参考： [在Go语言项目中使用Zap日志库](https://www.liwenzhou.com/posts/Go/zap/)
+
+**配置读取**
+
+配置采用[spf13/viper](https://github.com/spf13/viper)
