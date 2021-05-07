@@ -21,6 +21,8 @@ git clone https://github.com/soolaugust/go-toolkit.git
     go mod tidy
     ```
 
+    > 你可以按照需要复制你需要的组件
+
 ## 目前依赖的库
 
 **log**
